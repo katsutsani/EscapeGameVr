@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody))]
 public class CameraMove : MonoBehaviour
 {
     private const float moveSpeed = 7.5f;
     private const float cameraSpeed = 3.0f;
+    bool m_RotationBound;
+
+    public InputActionProperty AimRotation;
 
     public Quaternion TargetRotation { private set; get; }
 
@@ -25,32 +29,15 @@ public class CameraMove : MonoBehaviour
 
     private void Update()
     {
-        // Rotate the camera.
-        var rotation = new Vector2(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
-        var targetEuler = TargetRotation.eulerAngles + (Vector3)rotation * cameraSpeed;
+        var rotation = AimRotation.action.ReadValue<Quaternion>();
+        Debug.Log(rotation);
+        var targetEuler = TargetRotation.eulerAngles + new Vector3(rotation.x, rotation.y, rotation.z);
         if (targetEuler.x > 180.0f)
         {
             targetEuler.x -= 360.0f;
         }
         targetEuler.x = Mathf.Clamp(targetEuler.x, -75.0f, 75.0f);
         TargetRotation = Quaternion.Euler(targetEuler);
-
-        transform.rotation = Quaternion.Slerp(transform.rotation, TargetRotation,
-            Time.deltaTime * 15.0f);
-
-        // Move the camera.
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-        moveVector = new Vector3(x, 0.0f, z) * moveSpeed;
-
-        moveY = Input.GetAxis("Elevation");
-    }
-
-    private void FixedUpdate()
-    {
-        Vector3 newVelocity = transform.TransformDirection(moveVector);
-        newVelocity.y += moveY * moveSpeed;
-        rigidbody.velocity = newVelocity;
     }
 
     public void ResetTargetRotation()

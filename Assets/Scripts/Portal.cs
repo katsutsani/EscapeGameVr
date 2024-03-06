@@ -21,6 +21,7 @@ public class Portal : MonoBehaviour
     private Transform testTransform;
 
     private List<PortalableObject> portalObjects = new List<PortalableObject>();
+    [field: SerializeField]
 
     public bool IsPlaced { get; private set; }
 

@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PortalPlacement : MonoBehaviour
 {
+
+    public InputActionProperty Rightfire;
+    bool RightAlreadyFire = false;
+    public InputActionProperty Leftfire;
+    bool LeftAlreadyFire = false;
 
     [SerializeField]
     private PortalPair portals;
@@ -21,22 +27,30 @@ public class PortalPlacement : MonoBehaviour
         cameraMove = GetComponent<CameraMove>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        bool RightfireValue = Rightfire.action.IsPressed();
+
+        bool LeftfireValue = Leftfire.action.IsPressed();
+        if (RightfireValue && !RightAlreadyFire)
         {
             FirePortal(0, transform.position, transform.forward, 250.0f);
+            RightAlreadyFire = true;
         }
-        else if (Input.GetKeyDown(KeyCode.Return))
+        else if (!RightfireValue && RightAlreadyFire)
+        {
+            RightAlreadyFire = false;
+        }
+
+        else if (!LeftfireValue && LeftAlreadyFire)
+        {
+            LeftAlreadyFire = false;
+        }
+        else if (LeftfireValue && !LeftAlreadyFire)
         {
             FirePortal(1, transform.position, transform.forward, 250.0f);
+            LeftAlreadyFire = true;
         }
     }
 
@@ -78,7 +92,7 @@ public class PortalPlacement : MonoBehaviour
             var cameraRotation = cameraMove.TargetRotation;
             var portalRight = cameraRotation * Vector3.right;
 
-            if(Mathf.Abs(portalRight.x) >= Mathf.Abs(portalRight.z))
+            if (Mathf.Abs(portalRight.x) >= Mathf.Abs(portalRight.z))
             {
                 portalRight = (portalRight.x >= 0) ? Vector3.right : -Vector3.right;
 
@@ -97,7 +111,7 @@ public class PortalPlacement : MonoBehaviour
 
             bool wasPlaced = portals.Portals[portalID].PlacePortal(hit.collider, hit.point, portalRotation);
 
-            if(wasPlaced )
+            if (wasPlaced)
             {
                 crosshair.SetPortalPlaced(portalID, true);
             }
