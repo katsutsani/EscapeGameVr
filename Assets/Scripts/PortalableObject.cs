@@ -22,11 +22,6 @@ public class PortalableObject : MonoBehaviour
     {
         cloneObject = new GameObject();
         cloneObject.SetActive(false);
-        var meshFilter = cloneObject.AddComponent<MeshFilter>();
-        var meshRenderer = cloneObject.AddComponent<MeshRenderer>();
-
-        meshFilter.mesh = GetComponent<MeshFilter>().mesh;
-        meshRenderer.materials = GetComponent<MeshRenderer>().materials;
 
         cloneObject.transform.localScale = transform.localScale;
 
