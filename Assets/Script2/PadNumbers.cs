@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PadNumbers : MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class PadNumbers : MonoBehaviour
 
     [SerializeField]
     private List<GameObject> _textNum;
+
+    public UnityEvent Victory;
+
+    [SerializeField]
+    private GameObject _portal;
 
     public void GoodNumber(TextMeshProUGUI textMeshPro)
     {
@@ -20,18 +26,16 @@ public class PadNumbers : MonoBehaviour
             {
                 if (_nextNum == 6)
                 {
-                    Debug.Log("victory");
                     _nextNum = 1;
+                    Victory.Invoke();
                     return;
                 }
                 _nextNum++;
-                Debug.Log("oui");
                 ChangeNumbers();
             }
             else
             {
                 _nextNum = 1;
-                Debug.Log("t'es nul");
                 ChangeNumbers();
             }
         }
@@ -78,6 +82,11 @@ public class PadNumbers : MonoBehaviour
             numbers.Add(i);
         }
         return numbers;
+    }
+
+    public void Unlock()
+    {
+        Destroy(_portal);
     }
 }
 
