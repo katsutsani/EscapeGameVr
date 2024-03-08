@@ -6,9 +6,9 @@ using UnityEngine.Events;
 
 public class buttonVR : MonoBehaviour
 {
-    public GameObject button;
     public UnityEvent onPress;
     public UnityEvent onRelease;
+    GameObject button;
     GameObject presser;
     bool isPressed;
 
