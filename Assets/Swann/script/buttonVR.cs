@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,9 +15,18 @@ public class buttonVR : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        button = gameObject.transform.GetChild(0).gameObject;
         isPressed = false;
     }
-    
+
+    private void Update()
+    {
+        if (button.transform.localPosition.y < 2.5f)
+            button.transform.localPosition = new Vector3(0, 2.5f, 0);
+
+        if (button.transform.localPosition.y > 4f)
+            button.transform.localPosition = new Vector3(0, 4f, 0);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (!isPressed)
