@@ -45,6 +45,7 @@ public class PortalableObject : MonoBehaviour
             Quaternion relativeRot = Quaternion.Inverse(inTransform.rotation) * transform.rotation;
             relativeRot = halfTurn * relativeRot;
             cloneObject.transform.rotation = outTransform.rotation * relativeRot;
+            //cloneObject.transform.rotation = new Quaternion(cloneObject.transform.rotation.x, cloneObject.transform.rotation.y, 0.0f, cloneObject.transform.rotation.w);
         }
         else
         {
@@ -88,6 +89,7 @@ public class PortalableObject : MonoBehaviour
         Quaternion relativeRot = Quaternion.Inverse(inTransform.rotation) * transform.rotation;
         relativeRot = halfTurn * relativeRot;
         transform.rotation = outTransform.rotation * relativeRot;
+        transform.rotation = new Quaternion(0.0f, transform.rotation.y, 0.0f, 0.0f);
 
         Vector3 relativeVel = inTransform.InverseTransformDirection(body.velocity);
         relativeVel = halfTurn * relativeVel;
@@ -96,6 +98,9 @@ public class PortalableObject : MonoBehaviour
         var tmp = inPortal;
         inPortal = outPortal; 
         outPortal = tmp;
+
+        transform.rotation = new Quaternion(0.0f, transform.rotation.y, 0.0f, 0.0f);
+
     }
     // Start is called before the first frame update
     void Start()
@@ -106,6 +111,6 @@ public class PortalableObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

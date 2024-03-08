@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PortalPlacement : MonoBehaviour
+public class PortalPlacementRight : MonoBehaviour
 {
-
     public InputActionProperty Rightfire;
     bool RightAlreadyFire = false;
-    public InputActionProperty Leftfire;
-    bool LeftAlreadyFire = false;
 
     [SerializeField]
     private PortalPair portals;
@@ -20,37 +17,27 @@ public class PortalPlacement : MonoBehaviour
     [SerializeField]
     private Crosshair crosshair;
 
-    private CameraMove cameraMove;
+    private CameraMoveRight cameraMove;
 
     private void Awake()
     {
-        cameraMove = GetComponent<CameraMove>();
+        cameraMove = GetComponent<CameraMoveRight>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         bool RightfireValue = Rightfire.action.IsPressed();
 
-        bool LeftfireValue = Leftfire.action.IsPressed();
-        if (RightfireValue && !RightAlreadyFire)
-        {
-            FirePortal(0, transform.position, transform.forward, 250.0f);
-            RightAlreadyFire = true;
-        }
-        else if (!RightfireValue && RightAlreadyFire)
+        if (!RightfireValue && RightAlreadyFire)
         {
             RightAlreadyFire = false;
         }
-
-        else if (!LeftfireValue && LeftAlreadyFire)
+        else if (RightfireValue && !RightAlreadyFire)
         {
-            LeftAlreadyFire = false;
-        }
-        else if (LeftfireValue && !LeftAlreadyFire)
-        {
-            FirePortal(1, transform.position, transform.forward, 250.0f);
-            LeftAlreadyFire = true;
+            FirePortal(0, transform.position, transform.forward, 250.0f);
+            RightAlreadyFire = true;
         }
     }
 

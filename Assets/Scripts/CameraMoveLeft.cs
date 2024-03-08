@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody))]
-public class CameraMove : MonoBehaviour
+public class CameraMoveLeft : MonoBehaviour
 {
     private const float moveSpeed = 7.5f;
     private const float cameraSpeed = 3.0f;
