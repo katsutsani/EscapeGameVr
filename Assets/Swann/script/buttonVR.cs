@@ -16,7 +16,7 @@ public class buttonVR : MonoBehaviour
     {
         isPressed = false;
     }
-    /*
+    
     private void OnTriggerEnter(Collider other)
     {
         if (!isPressed)
@@ -34,7 +34,7 @@ public class buttonVR : MonoBehaviour
             onRelease.Invoke();
             isPressed = false;
         }
-    }*/
+    }
 
     public void spawnSphere()
     {
