@@ -4484,6 +4484,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9014170783809206332, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1766784309}
+    - targetCorrespondingSourceObject: {fileID: 9014170783809206332, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1766784314}
+    - targetCorrespondingSourceObject: {fileID: 9014170783809206332, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1766784313}
     - targetCorrespondingSourceObject: {fileID: 9014170785475729474, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 601410639}
@@ -15083,18 +15089,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 100f7f627f5703146992a4f16a55a287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rightfire:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Rightfire
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 1345bd41-4490-4d87-9e58-45fee2d885a1
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   Leftfire:
     m_UseReference: 1
     m_Action:
@@ -15135,7 +15129,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: 5101698808175986029, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    m_Reference: {fileID: 8248158260566104461, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!54 &1766784312
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15163,6 +15157,59 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1766784313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766784302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 216ec23c0996648418e9561dffa93019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AimRotation:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Aim Rotation
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: ecd66a40-80e4-4ea8-9765-34c76064edb1
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 5101698808175986029, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+--- !u!114 &1766784314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766784302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c56bf3284310ef4580f7ec01c78920f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rightfire:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Rightfire
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 0a345b0a-29e1-4ce6-9b01-78d09255e502
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  portals: {fileID: 1089907362}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 193
+  crosshair: {fileID: 1818649836}
 --- !u!1001 &1769684684
 PrefabInstance:
   m_ObjectHideFlags: 0
