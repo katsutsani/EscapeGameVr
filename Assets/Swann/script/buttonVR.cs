@@ -8,9 +8,9 @@ public class buttonVR : MonoBehaviour
 {
     public UnityEvent onPress;
     public UnityEvent onRelease;
+    bool isPressed;
     GameObject button;
     GameObject presser;
-    bool isPressed;
 
     // Start is called before the first frame update
     void Start()
@@ -52,5 +52,22 @@ public class buttonVR : MonoBehaviour
         sphere.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         sphere.transform.localPosition = new Vector3(0, 1, 2);
         sphere.AddComponent<Rigidbody>();
+    }
+
+    public bool getIsPressed()
+    {
+        return isPressed;
+    }
+
+    public void openDoor(GameObject door)
+    {
+        Animator animator = door.GetComponent<Animator>();
+        animator.SetBool("character_nearby", true);
+    }
+
+    public void closeDoor(GameObject door)
+    {
+        Animator animator = door.GetComponent<Animator>();
+        animator.SetBool("character_nearby", false);
     }
 }
