@@ -36,7 +36,7 @@ public class PortalPlacementRight : MonoBehaviour
         }
         else if (RightfireValue && !RightAlreadyFire)
         {
-            FirePortal(0, transform.position, transform.forward, 250.0f);
+            FirePortal(0, transform.position, transform.forward, 500.0f);
             RightAlreadyFire = true;
         }
     }

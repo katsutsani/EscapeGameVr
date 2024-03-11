@@ -110,10 +110,10 @@ public class Portal : MonoBehaviour
     {
         var testPoints = new List<Vector3>
         {
-            new Vector3(-1.1f, 0.0f, 0.1f),
-            new Vector3(1.1f, 0.0f, 0.1f),
-            new Vector3(0.0f,-2.1f,0.1f),
-            new Vector3(0.0f,2.1f,0.1f)
+            new Vector3(-0.6f, 0.0f, 0.1f),
+            new Vector3(0.6f, 0.0f, 0.1f),
+            new Vector3(0.0f,-1.1f,0.1f),
+            new Vector3(0.0f,1.1f,0.1f)
         };
 
         var testDirs = new List<Vector3>
@@ -156,7 +156,7 @@ public class Portal : MonoBehaviour
             -Vector3.up
         };
 
-        var testDists = new List<float> { 1.1f, 1.1f, 2.1f, 2.1f };
+        var testDists = new List<float> { 0.6f, 0.6f, 1.1f, 1.1f };
 
         for (int i = 0; i < 4; ++i)
         {
@@ -175,18 +175,18 @@ public class Portal : MonoBehaviour
 
     private bool CheckOverlap()
     {
-        var checkExtents = new Vector3(0.9f, 1.9f, 0.05f);
+        var checkExtents = new Vector3(0.4f, 0.9f, 0.05f);
 
         var checkPositions = new Vector3[]
         {
             testTransform.position + testTransform.TransformVector(new Vector3(0.0f,0.0f,-0.1f)),
 
-            testTransform.position + testTransform.TransformVector(new Vector3(-1.0f,-2.0f,-0.1f)),
-            testTransform.position + testTransform.TransformVector(new Vector3(-1.0f,2.0f,-0.1f)),
+            testTransform.position + testTransform.TransformVector(new Vector3(-0.5f,-1.0f,-0.1f)),
+            testTransform.position + testTransform.TransformVector(new Vector3(-0.5f,1.0f,-0.1f)),
 
-            testTransform.position + testTransform.TransformVector(new Vector3(1.0f,-2.0f,-0.1f)),
+            testTransform.position + testTransform.TransformVector(new Vector3(0.5f,-1.0f,-0.1f)),
 
-            testTransform.position + testTransform.TransformVector(new Vector3(1.0f,2.0f,-0.1f)),
+            testTransform.position + testTransform.TransformVector(new Vector3(0.5f,1.0f,-0.1f)),
 
             testTransform.TransformVector(new Vector3(0.0f,0.0f,0.2f))
         };
