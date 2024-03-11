@@ -51,26 +51,26 @@ public class PortalPlacementLeft : MonoBehaviour
         {
             if (hit.collider.tag == "Portal")
             {
-                var inPortal = hit.collider.GetComponent<Portal>();
+                //var inPortal = hit.collider.GetComponent<Portal>();
 
-                if (inPortal == null)
-                {
-                    return;
-                }
+                //if (inPortal == null)
+                //{
+                //    return;
+                //}
 
-                var outPortal = inPortal.OtherPortal;
+                //var outPortal = inPortal.OtherPortal;
 
-                Vector3 relativePos = inPortal.transform.InverseTransformPoint(hit.point + dir);
-                relativePos = Quaternion.Euler(0.0f, 180.0f, 0.0f) * relativePos;
-                pos = outPortal.transform.TransformPoint(relativePos);
+                //Vector3 relativePos = inPortal.transform.InverseTransformPoint(hit.point + dir);
+                //relativePos = Quaternion.Euler(0.0f, 180.0f, 0.0f) * relativePos;
+                //pos = outPortal.transform.TransformPoint(relativePos);
 
-                Vector3 relativeDir = inPortal.transform.InverseTransformDirection(dir);
-                relativeDir = Quaternion.Euler(0.0f, 180.0f, 0.0f) * relativeDir;
-                dir = outPortal.transform.TransformDirection(relativeDir);
+                //Vector3 relativeDir = inPortal.transform.InverseTransformDirection(dir);
+                //relativeDir = Quaternion.Euler(0.0f, 180.0f, 0.0f) * relativeDir;
+                //dir = outPortal.transform.TransformDirection(relativeDir);
 
-                distance -= Vector3.Distance(pos, hit.point);
+                //distance -= Vector3.Distance(pos, hit.point);
 
-                FirePortal(portalID, pos, dir, distance);
+                //FirePortal(portalID, pos, dir, distance);
 
                 return;
 

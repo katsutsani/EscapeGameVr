@@ -4477,31 +4477,34 @@ PrefabInstance:
       addedObject: {fileID: 1766784312}
     - targetCorrespondingSourceObject: {fileID: 9014170783809206332, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1766784311}
-    - targetCorrespondingSourceObject: {fileID: 9014170783809206332, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1766784310}
-    - targetCorrespondingSourceObject: {fileID: 9014170783809206332, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1766784309}
-    - targetCorrespondingSourceObject: {fileID: 9014170783809206332, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1766784314}
-    - targetCorrespondingSourceObject: {fileID: 9014170783809206332, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1766784313}
     - targetCorrespondingSourceObject: {fileID: 9014170785475729474, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 601410639}
     - targetCorrespondingSourceObject: {fileID: 9014170785475729474, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 601410638}
+    - targetCorrespondingSourceObject: {fileID: 9014170785475729474, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 601410641}
+    - targetCorrespondingSourceObject: {fileID: 9014170785475729474, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 601410640}
+    - targetCorrespondingSourceObject: {fileID: 3471343859196315090, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 452463684}
     - targetCorrespondingSourceObject: {fileID: 9014170783705847997, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 452463682}
     - targetCorrespondingSourceObject: {fileID: 9014170783705847997, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 452463687}
+    - targetCorrespondingSourceObject: {fileID: 9014170783705847997, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 452463689}
+    - targetCorrespondingSourceObject: {fileID: 9014170783705847997, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 452463688}
   m_SourcePrefab: {fileID: 100100000, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
 --- !u!114 &452463680 stripped
 MonoBehaviour:
@@ -4540,6 +4543,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.2, y: 0.2, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &452463683 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3471343859196315090, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+  m_PrefabInstance: {fileID: 452463679}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &452463684
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452463683}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!54 &452463687
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4567,6 +4602,59 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &452463688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452463681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c56bf3284310ef4580f7ec01c78920f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rightfire:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Rightfire
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 9dcf7820-61e5-4b28-a2d8-f9fbf27d3738
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  portals: {fileID: 1089907362}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 193
+  crosshair: {fileID: 1818649836}
+--- !u!114 &452463689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452463681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 216ec23c0996648418e9561dffa93019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AimRotation:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Aim Rotation
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 5a211c1d-161d-405e-8576-69696be7ce01
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 5101698808175986029, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1001 &481860876
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5144,6 +5232,59 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &601410640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601410633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 100f7f627f5703146992a4f16a55a287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Leftfire:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Leftfire
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 3845f96c-0686-4333-8a00-d00ae2e0b007
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  portals: {fileID: 1089907362}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 193
+  crosshair: {fileID: 1818649836}
+--- !u!114 &601410641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601410633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b465315cfaf2154e9c556f883d7f582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AimRotation:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Aim Rotation
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: bbf1d69e-d4a2-4b74-8147-5ad20df00d61
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 8248158260566104461, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &601830534 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 113938, guid: 5b3cc55650f95e34797ed0af9c57110a, type: 3}
@@ -9983,7 +10124,7 @@ GameObject:
   - component: {fileID: 1089907362}
   m_Layer: 7
   m_Name: PortalPair
-  m_TagString: Untagged
+  m_TagString: Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9998,8 +10139,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1154237208}
   - {fileID: 1802316148}
@@ -10744,7 +10885,7 @@ GameObject:
   - component: {fileID: 1154237209}
   m_Layer: 7
   m_Name: Portal1
-  m_TagString: Untagged
+  m_TagString: Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15077,59 +15218,6 @@ MonoBehaviour:
   - {fileID: 1802316147}
   portalCamera: {fileID: 1403690457}
   iterations: 3
---- !u!114 &1766784310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1766784302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 100f7f627f5703146992a4f16a55a287, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Leftfire:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Leftfire
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 0ae62c6a-90a5-4b71-91e8-fbaf27b04095
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  portals: {fileID: 1089907362}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 193
-  crosshair: {fileID: 1818649836}
---- !u!114 &1766784311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1766784302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b465315cfaf2154e9c556f883d7f582, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AimRotation:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Aim Rotation
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 108d1685-7fc4-4479-ae17-916569d9be9b
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 8248158260566104461, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!54 &1766784312
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15157,59 +15245,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1766784313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1766784302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 216ec23c0996648418e9561dffa93019, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AimRotation:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Aim Rotation
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: ecd66a40-80e4-4ea8-9765-34c76064edb1
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 5101698808175986029, guid: c348712bda248c246b8c49b3db54643f, type: 3}
---- !u!114 &1766784314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1766784302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c56bf3284310ef4580f7ec01c78920f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Rightfire:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Rightfire
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 0a345b0a-29e1-4ce6-9b01-78d09255e502
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  portals: {fileID: 1089907362}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 193
-  crosshair: {fileID: 1818649836}
 --- !u!1001 &1769684684
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15468,7 +15503,7 @@ GameObject:
   - component: {fileID: 1802316149}
   m_Layer: 7
   m_Name: Portal2
-  m_TagString: Untagged
+  m_TagString: Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
