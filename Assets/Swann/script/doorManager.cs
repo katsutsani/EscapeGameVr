@@ -17,6 +17,7 @@ public class Button
 
 public class doorManager : MonoBehaviour
 {
+    public bool openByDefault = false;
     public List<Button> buttons;
     Animator animator;
 
@@ -34,6 +35,10 @@ public class doorManager : MonoBehaviour
 
     bool checkLogic()
     {
+        if (buttons.Count == 0)
+            return openByDefault;
+
+
         foreach (Button button in buttons)
         {
             if (button.button.transform.GetChild(1).gameObject.GetComponent<buttonVR>().getIsPressed() != button.enabled)

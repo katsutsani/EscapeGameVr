@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.XR.CoreUtils;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,7 +6,9 @@ public class buttonVR : MonoBehaviour
 {
     public UnityEvent onPress;
     public UnityEvent onRelease;
+    public bool isButtonToggle;
     bool isPressed;
+    bool wasReleased;
     GameObject button;
     GameObject presser;
 
@@ -17,6 +17,7 @@ public class buttonVR : MonoBehaviour
     {
         button = gameObject.transform.GetChild(0).gameObject;
         isPressed = false;
+        wasReleased = true;
     }
 
     private void Update()
@@ -29,45 +30,45 @@ public class buttonVR : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Enter");
+        if (!wasReleased)
+            return;
+
+        if (isButtonToggle)
+        {
+            if (isPressed)
+            {
+                onRelease.Invoke();
+                isPressed = false;
+                return;
+            }
+            presser = other.gameObject;
+            onPress.Invoke();
+            isPressed = true;
+            return;
+        }
         if (!isPressed)
         {
             presser = other.gameObject;
             onPress.Invoke();
             isPressed = true;
+            return;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == presser)
+        Debug.Log("Exit");
+        if (!isButtonToggle && other.gameObject == presser)
         {
             onRelease.Invoke();
             isPressed = false;
         }
-    }
-
-    public void spawnSphere()
-    {
-        GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        sphere.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-        sphere.transform.localPosition = new Vector3(0, 1, 2);
-        sphere.AddComponent<Rigidbody>();
+        wasReleased = true;
     }
 
     public bool getIsPressed()
     {
         return isPressed;
-    }
-
-    public void openDoor(GameObject door)
-    {
-        Animator animator = door.GetComponent<Animator>();
-        animator.SetBool("character_nearby", true);
-    }
-
-    public void closeDoor(GameObject door)
-    {
-        Animator animator = door.GetComponent<Animator>();
-        animator.SetBool("character_nearby", false);
     }
 }
