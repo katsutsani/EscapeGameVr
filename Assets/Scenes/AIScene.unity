@@ -283,6 +283,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 10
+  PlayersTag: Player
+  partToRotate: {fileID: 922682636}
+--- !u!4 &922682636 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9211322333849081116, guid: c150ea5569195a24b85f78034ea1ad8c, type: 3}
+  m_PrefabInstance: {fileID: 3294693446686199467}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &996631271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -293,7 +300,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1114260476483171701, guid: 7ae956b4f54394e80818898d8f4d30c6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.0457551
+      value: 8.04
       objectReference: {fileID: 0}
     - target: {fileID: 1114260476483171701, guid: 7ae956b4f54394e80818898d8f4d30c6, type: 3}
       propertyPath: m_LocalPosition.y
