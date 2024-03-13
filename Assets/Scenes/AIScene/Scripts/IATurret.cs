@@ -75,7 +75,13 @@ public class IATurret : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bulletGo = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        BulletMovement bullet = bulletGo.GetComponent<BulletMovement>();
+        
+        if (bullet != null )
+        {
+            bullet.Seek(target);
+        }
     }
 
     private void OnDrawGizmosSelected()
