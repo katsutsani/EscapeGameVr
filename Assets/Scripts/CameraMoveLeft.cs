@@ -30,7 +30,6 @@ public class CameraMoveLeft : MonoBehaviour
     private void Update()
     {
         var rotation = AimRotation.action.ReadValue<Quaternion>();
-        Debug.Log(rotation);
         var targetEuler = TargetRotation.eulerAngles + new Vector3(rotation.x, rotation.y, rotation.z);
         if (targetEuler.x > 180.0f)
         {
