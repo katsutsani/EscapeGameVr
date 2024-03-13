@@ -5,9 +5,20 @@ using UnityEngine;
 public class IATurret : MonoBehaviour
 {
     private Transform target;
+
+    [Header("Attributes")]
+
     public float range = 10f;
+    public float fireRate = 1f;
+    private float fireCountdown = 0f;
+
+    [Header("SetUp")]
     public string PlayersTag = "Player";
     public Transform partToRotate;
+
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +63,19 @@ public class IATurret : MonoBehaviour
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = lookRotation.eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y ,0f);
+
+        if (fireCountdown <= 0f)
+        {
+            Shoot();
+            fireCountdown = 1f / fireRate;
+        }
+        fireCountdown -= Time.deltaTime;
+
+    }
+
+    void Shoot()
+    {
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 
     private void OnDrawGizmosSelected()
