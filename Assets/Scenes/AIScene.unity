@@ -286,8 +286,8 @@ MonoBehaviour:
   fireRate: 1
   PlayersTag: Player
   partToRotate: {fileID: 922682636}
-  bulletPrefab: {fileID: 1829371231341652, guid: 426b44a7575f71e479fab4f4e8431989, type: 3}
-  firePoint: {fileID: 0}
+  bulletPrefab: {fileID: 4546742834840410310, guid: 07f7aa17234e1e8419cfe22ffec563cf, type: 3}
+  firePoint: {fileID: 1236643727}
 --- !u!4 &922682636 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9211322333849081116, guid: c150ea5569195a24b85f78034ea1ad8c, type: 3}
