@@ -17,6 +17,8 @@ public class CheckCollision : MonoBehaviour
             _Theme.Stop();
             _MainTheme.Play();
             _launcher.StartGame = true;
+            _launcher1.StartGame = true;
+            _launcher2.StartGame = true;
         }
     }
 }
