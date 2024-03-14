@@ -5237,7 +5237,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6209309998178532447, guid: b3830b3b2f190ee46a9c88433e985221, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6526894358897026290, guid: b3830b3b2f190ee46a9c88433e985221, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5268,6 +5268,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3830b3b2f190ee46a9c88433e985221, type: 3}
+--- !u!1 &211326711 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6209309998178532447, guid: b3830b3b2f190ee46a9c88433e985221, type: 3}
+  m_PrefabInstance: {fileID: 211326710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &214314731
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36070,7 +36075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c93c0dd04206340bce437b7ebdfa18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stair: {fileID: 0}
+  stair: {fileID: 211326711}
 --- !u!4 &1847540111 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 469248, guid: 3845c7234a0ed4843ba4e38e2404f54d, type: 3}
