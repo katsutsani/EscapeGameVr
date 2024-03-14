@@ -9,6 +9,8 @@ TagManager:
   - IAPlatformer
   - Anchor
   - Button
+  - Fruit
+  - Hand
   layers:
   - Default
   - TransparentFX
