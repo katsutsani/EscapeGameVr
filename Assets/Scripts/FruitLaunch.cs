@@ -13,7 +13,9 @@ public class FruitLaunch : MonoBehaviour
     private List<GameObject> _projectile;
     private GameObject _fruit;
     private int _proj;
+    private int _chance;
     public bool StartGame = false;
+    private bool coroutineStarted = false;
 
     private void RandomProjecties()
     {
@@ -24,9 +26,10 @@ public class FruitLaunch : MonoBehaviour
 
     void Update()
     {
-        if (StartGame)
+        if (StartGame && !coroutineStarted)
         {
             StartCoroutine(FruitNinja());
+            coroutineStarted = true;
         }
     }
     IEnumerator FruitNinja()
@@ -36,7 +39,12 @@ public class FruitLaunch : MonoBehaviour
             yield return new WaitForSeconds(1f);
             _target = GameObject.FindGameObjectWithTag("Player");
             transform.LookAt(_target.transform.position + new Vector3(0.0f, 100f, 0f));
-            RandomProjecties();
+            _chance = Random.Range(0, 4);
+            if (_chance == 1)
+            {
+                RandomProjecties();
+
+            }
         }
         yield return null;
     }

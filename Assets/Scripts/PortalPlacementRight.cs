@@ -37,6 +37,7 @@ public class PortalPlacementRight : MonoBehaviour
         else if (RightfireValue && !RightAlreadyFire)
         {
             FirePortal(0, transform.position, transform.forward, 500.0f);
+            FindObjectOfType<Audio_Manager>().Play("PortalSound2");
             RightAlreadyFire = true;
         }
     }
