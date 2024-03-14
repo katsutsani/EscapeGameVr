@@ -12424,15 +12424,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
+  - name: MainTheme
+    clip: {fileID: 8300000, guid: 3a19fb4539c9f3740812441dfb8ff566, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
   - name: Theme
     clip: {fileID: 8300000, guid: 7910ce01674dc734083f3dde3293a104, type: 3}
-    volume: 0.2
+    volume: 0.3
     pitch: 1
+    loop: 1
     source: {fileID: 0}
   - name: SwordSFX
     clip: {fileID: 8300000, guid: d6148f5bf30213f49a1dc2d4500bb448, type: 3}
     volume: 0.5
     pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: DoorOpen
+    clip: {fileID: 8300000, guid: 69e89c86260d2f64a8e82515e41c1710, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: DoorClosed
+    clip: {fileID: 8300000, guid: d54d515f704973f4fb65a947cda82948, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PortalSound1
+    clip: {fileID: 8300000, guid: bf4424f408e58804fa10c872a1b0dc48, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PortalSound2
+    clip: {fileID: 8300000, guid: d2d96bfac498e0049ba5911dcbf2c67c, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
 --- !u!4 &625776007
 Transform:
