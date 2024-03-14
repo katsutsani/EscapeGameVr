@@ -11,11 +11,9 @@ public class FruitLaunch : MonoBehaviour
     private GameObject _target;
     [SerializeField]
     private List<GameObject> _projectile;
-    [SerializeField]
-    private Collider _targetCollider;
     private GameObject _fruit;
     private int _proj;
-    private bool StartGame = false;
+    public bool StartGame = false;
 
     private void RandomProjecties()
     {
@@ -26,9 +24,8 @@ public class FruitLaunch : MonoBehaviour
 
     void Update()
     {
-        if (_targetCollider.isTrigger && StartGame == false)
+        if (StartGame)
         {
-            StartGame = true;
             StartCoroutine(FruitNinja());
         }
     }
