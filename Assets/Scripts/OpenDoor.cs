@@ -14,11 +14,15 @@ public class OpenDoor : MonoBehaviour
     public void openDoor()
     {
         animator.SetBool("character_nearby", true);
+        FindObjectOfType<Audio_Manager>().Play("DoorOpen");
+
     }
 
     public void closeDoor()
     {
         animator.SetBool("character_nearby", false);
+        FindObjectOfType<Audio_Manager>().Play("DoorClosed");
+
     }
 
     // Update is called once per frame
