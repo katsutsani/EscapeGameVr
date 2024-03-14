@@ -113,6 +113,7 @@ public class Portal : MonoBehaviour
 
             gameObject.SetActive(true);
             IsPlaced = true;
+            FindObjectOfType<Audio_Manager>().Play("PortalSound1");
             return true;
         }
 
