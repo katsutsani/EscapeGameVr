@@ -16,6 +16,10 @@ public class PortalableObject : MonoBehaviour
     private new Rigidbody body;
     protected new Collider collider;
 
+    public float Cooldown = 5;
+    public float ActualCooldown;
+    private bool InCooldown = false;
+
     private static readonly Quaternion halfTurn = Quaternion.Euler(0f, 180.0f, 0f);
 
     private void Awake()
@@ -31,9 +35,9 @@ public class PortalableObject : MonoBehaviour
 
     private void LateUpdate()
     {
-        if(inPortal == null || outPortal == null) return;
+        if (inPortal == null || outPortal == null) return;
 
-        if(cloneObject.activeSelf && inPortal.IsPlaced && outPortal.IsPlaced)
+        if (cloneObject.activeSelf && inPortal.IsPlaced && outPortal.IsPlaced)
         {
             var inTransform = inPortal.transform;
             var outTransform = outPortal.transform;
@@ -45,7 +49,6 @@ public class PortalableObject : MonoBehaviour
             Quaternion relativeRot = Quaternion.Inverse(inTransform.rotation) * transform.rotation;
             relativeRot = halfTurn * relativeRot;
             cloneObject.transform.rotation = outTransform.rotation * relativeRot;
-            //cloneObject.transform.rotation = new Quaternion(cloneObject.transform.rotation.x, cloneObject.transform.rotation.y, 0.0f, cloneObject.transform.rotation.w);
         }
         else
         {
@@ -55,8 +58,8 @@ public class PortalableObject : MonoBehaviour
 
     public void SetIsInPortal(Portal inPortal, Portal outPortal, Collider wallCollider)
     {
-        this.inPortal= inPortal;
-        this.outPortal= outPortal;
+        this.inPortal = inPortal;
+        this.outPortal = outPortal;
 
         Physics.IgnoreCollision(collider, wallCollider);
 
@@ -71,7 +74,7 @@ public class PortalableObject : MonoBehaviour
 
         --inPortalCount;
 
-        if(inPortalCount == 0)
+        if (inPortalCount == 0)
         {
             cloneObject.SetActive(false);
         }
@@ -79,38 +82,65 @@ public class PortalableObject : MonoBehaviour
 
     public virtual void Warp()
     {
-        var inTransform = inPortal.transform;
-        var outTransform = outPortal.transform;
+        if (!InCooldown)
+        {
+            var inTransform = inPortal.transform;
+            var outTransform = outPortal.transform;
 
-        Vector3 relativePos = inTransform.InverseTransformPoint(transform.position);
-        relativePos = halfTurn * relativePos;
-        transform.position = outTransform.TransformPoint(relativePos);
+            Vector3 relativePos = inTransform.InverseTransformPoint(transform.position);
+            relativePos = halfTurn * relativePos;
+            transform.position = outTransform.TransformPoint(relativePos);
 
-        Quaternion relativeRot = Quaternion.Inverse(inTransform.rotation) * transform.rotation;
-        relativeRot = halfTurn * relativeRot;
-        transform.rotation = outTransform.rotation * relativeRot;
-        transform.rotation = new Quaternion(0.0f, transform.rotation.y, 0.0f, 0.0f);
+            Quaternion relativeRot = Quaternion.Inverse(inTransform.rotation) * transform.rotation;
+            relativeRot = halfTurn * relativeRot;
+            transform.rotation = outTransform.rotation * relativeRot;
+            transform.rotation = new Quaternion(0.0f, transform.rotation.y, 0.0f, 0.0f);
 
-        Vector3 relativeVel = inTransform.InverseTransformDirection(body.velocity);
-        relativeVel = halfTurn * relativeVel;
-        body.velocity = outTransform.TransformDirection(relativeVel);
+            Vector3 relativeVel = inTransform.InverseTransformDirection(body.velocity);
+            relativeVel = halfTurn * relativeVel;
+            body.velocity = outTransform.TransformDirection(relativeVel);
 
-        var tmp = inPortal;
-        inPortal = outPortal; 
-        outPortal = tmp;
+            var tmp = inPortal;
+            inPortal = outPortal;
+            outPortal = tmp;
 
-        transform.rotation = new Quaternion(0.0f, transform.rotation.y, 0.0f, 0.0f);
+            transform.rotation = new Quaternion(0.0f, transform.rotation.y, 0.0f, 0.0f);
 
+            ActualCooldown = Cooldown;
+            InCooldown = true;
+        }
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (ActualCooldown < 4)
+        {
+            if (inPortal != null && outPortal != null)
+            {
+                inPortal.GetComponent<BoxCollider>().isTrigger = false;
+                outPortal.GetComponent<BoxCollider>().isTrigger = false;
+            }
+        }
+        if (ActualCooldown > 0)
+        {
+            ActualCooldown -= Time.deltaTime;
+        }
+        else
+        {
+            InCooldown = false;
+            if(inPortal != null && outPortal != null)
+            {
+                inPortal.GetComponent<BoxCollider>().isTrigger = true;
+                outPortal.GetComponent<BoxCollider>().isTrigger = true;
+            }
+
+        }
 
     }
 }

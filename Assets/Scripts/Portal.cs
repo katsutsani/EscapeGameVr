@@ -66,8 +66,15 @@ public class Portal : MonoBehaviour
 
         if (obj != null)
         {
-            portalObjects.Add(obj);
-            obj.SetIsInPortal(this, OtherPortal, wallCollider);
+            if (other.tag == "IAPlatformer")
+            {
+                other.transform.position = OtherPortal.transform.position + new Vector3(2f,0.0f,0.0f);            
+            }
+            else
+            {
+                portalObjects.Add(obj);
+                obj.SetIsInPortal(this, OtherPortal, wallCollider);
+            }
         }
     }
 
@@ -75,10 +82,16 @@ public class Portal : MonoBehaviour
     {
         var obj = other.GetComponent<PortalableObject>();
 
+        if (other.tag == "IAPlatformer")
+        {
+
+        }
+
         if (portalObjects.Contains(obj))
         {
             portalObjects.Remove(obj);
             obj.ExitPortal(wallCollider);
+
         }
     }
 

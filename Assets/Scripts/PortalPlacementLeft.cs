@@ -75,7 +75,6 @@ public class PortalPlacementLeft : MonoBehaviour
                 return;
 
             }
-
             var cameraRotationLeft = cameraMoveLeft.TargetRotation;
             var portalRight = cameraRotationLeft * Vector3.right;
 
@@ -103,5 +102,7 @@ public class PortalPlacementLeft : MonoBehaviour
                 crosshair.SetPortalPlaced(portalID, true);
             }
         }
+
+
     }
 }

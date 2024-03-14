@@ -17,6 +17,18 @@ public class PadNumbers : MonoBehaviour
     [SerializeField]
     private GameObject _portal;
 
+    [SerializeField]
+    private PortalCamera _portalCamera;
+
+    [SerializeField]
+    private CameraMoveLeft _cameraMoveLeft;
+    [SerializeField]
+    private PortalPlacementLeft _portalPlacementLeft;
+    [SerializeField]
+    private CameraMoveRight _cameraMoveRight;
+    [SerializeField]
+    private PortalPlacementRight _portalPlacementRight;
+
     public void GoodNumber(TextMeshProUGUI textMeshPro)
     {
         int num;
@@ -87,6 +99,12 @@ public class PadNumbers : MonoBehaviour
     public void Unlock()
     {
         Destroy(_portal);
+        _portalCamera.enabled = true;
+        _cameraMoveRight.enabled = true;
+        _cameraMoveLeft.enabled = true;
+        _portalPlacementLeft.enabled = true;
+        _portalPlacementRight.enabled = true;
+
     }
 }
 

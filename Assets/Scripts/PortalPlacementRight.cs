@@ -17,11 +17,11 @@ public class PortalPlacementRight : MonoBehaviour
     [SerializeField]
     private Crosshair crosshair;
 
-    private CameraMoveRight cameraMove;
+    private CameraMoveRight cameraMoveRight;
 
     private void Awake()
     {
-        cameraMove = GetComponent<CameraMoveRight>();
+        cameraMoveRight = GetComponent<CameraMoveRight>();
     }
 
     // Update is called once per frame
@@ -76,8 +76,8 @@ public class PortalPlacementRight : MonoBehaviour
 
             }
 
-            var cameraRotation = cameraMove.TargetRotation;
-            var portalRight = cameraRotation * Vector3.right;
+            var cameraRotationLeft = cameraMoveRight.TargetRotation;
+            var portalRight = cameraRotationLeft * Vector3.right;
 
             if (Mathf.Abs(portalRight.x) >= Mathf.Abs(portalRight.z))
             {
@@ -103,5 +103,6 @@ public class PortalPlacementRight : MonoBehaviour
                 crosshair.SetPortalPlaced(portalID, true);
             }
         }
+
     }
 }

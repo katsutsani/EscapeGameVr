@@ -33,8 +33,8 @@ public class PortalCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        portals[0].Renderer.material.mainTexture = tempTexture1;
-        portals[1].Renderer.material.mainTexture = tempTexture2;
+        //portals[0].Renderer.material.mainTexture = tempTexture1;
+        //portals[1].Renderer.material.mainTexture = tempTexture2;
     }
 
     private void OnEnable()
@@ -49,52 +49,52 @@ public class PortalCamera : MonoBehaviour
 
     void UpdateCamera(ScriptableRenderContext SRC, Camera cam)
     {
-        if (!portals[0].IsPlaced || !portals[1].IsPlaced)
-        {
-            return;
-        }
+        //if (!portals[0].IsPlaced || !portals[1].IsPlaced)
+        //{
+        //    return;
+        //}
 
-        if (portals[0].Renderer.isVisible)
-        {
-            portalCamera.targetTexture = tempTexture1;
-            for (int i = iterations - 1; i>= 0; --i)
-            {
-                RenderCamera(portals[0], portals[1], i, SRC);
-            }
-        }
+        //if (portals[0].Renderer.isVisible)
+        //{
+        //    portalCamera.targetTexture = tempTexture1;
+        //    for (int i = iterations - 1; i>= 0; --i)
+        //    {
+        //        RenderCamera(portals[0], portals[1], i, SRC);
+        //    }
+        //}
     }
 
     private void RenderCamera(Portal inPortal, Portal outPortal, int iterationID, ScriptableRenderContext SRC)
     {
-        Transform inTransform = inPortal.transform;
-        Transform outTransform = outPortal.transform;
+        //Transform inTransform = inPortal.transform;
+        //Transform outTransform = outPortal.transform;
 
-        Transform cameraTransform = portalCamera.transform;
+        //Transform cameraTransform = portalCamera.transform;
 
-        cameraTransform.position = transform.position;
-        cameraTransform.rotation = transform.rotation;
+        //cameraTransform.position = transform.position;
+        //cameraTransform.rotation = transform.rotation;
 
-        for (int i = 0; i <= iterationID; ++i)
-        {
-            Vector3 relativePos = inTransform.InverseTransformPoint(cameraTransform.position);
-            relativePos = Quaternion.Euler(0.0f,180.0f,0.0f) * relativePos;
-            cameraTransform.position = outTransform.TransformPoint(relativePos);
+        //for (int i = 0; i <= iterationID; ++i)
+        //{
+        //    Vector3 relativePos = inTransform.InverseTransformPoint(cameraTransform.position);
+        //    relativePos = Quaternion.Euler(0.0f,180.0f,0.0f) * relativePos;
+        //    cameraTransform.position = outTransform.TransformPoint(relativePos);
 
-            Quaternion relativeRot = Quaternion.Inverse(inTransform.rotation) * cameraTransform.rotation;
-            relativeRot = Quaternion.Euler(0.0f, 180.0f, 0.0f) * relativeRot;
-            cameraTransform.rotation = outTransform.rotation * relativeRot;
+        //    Quaternion relativeRot = Quaternion.Inverse(inTransform.rotation) * cameraTransform.rotation;
+        //    relativeRot = Quaternion.Euler(0.0f, 180.0f, 0.0f) * relativeRot;
+        //    cameraTransform.rotation = outTransform.rotation * relativeRot;
 
-        }
+        //}
 
-        Plane p = new Plane(-outTransform.forward, outTransform.position);
-        Vector4 clipPlaneWorldSpace = new Vector4(p.normal.x, p.normal.y, p.normal.z, p.distance);
-        Vector4 clipPlaneCameraSpace =
-            Matrix4x4.Transpose(Matrix4x4.Inverse(portalCamera.worldToCameraMatrix)) * clipPlaneWorldSpace;
+        //Plane p = new Plane(-outTransform.forward, outTransform.position);
+        //Vector4 clipPlaneWorldSpace = new Vector4(p.normal.x, p.normal.y, p.normal.z, p.distance);
+        //Vector4 clipPlaneCameraSpace =
+        //    Matrix4x4.Transpose(Matrix4x4.Inverse(portalCamera.worldToCameraMatrix)) * clipPlaneWorldSpace;
 
-        var newMatrix = mainCam.CalculateObliqueMatrix(clipPlaneCameraSpace);
-        portalCamera.projectionMatrix = newMatrix;
+        //var newMatrix = mainCam.CalculateObliqueMatrix(clipPlaneCameraSpace);
+        //portalCamera.projectionMatrix = newMatrix;
 
-        UniversalRenderPipeline.RenderSingleCamera(SRC, portalCamera);
+        //UniversalRenderPipeline.RenderSingleCamera(SRC, portalCamera);
     }
 
     // Update is called once per frame

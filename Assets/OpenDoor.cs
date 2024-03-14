@@ -1,26 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
-public class NewBehaviourScript : MonoBehaviour
+public class OpenDoor : MonoBehaviour
 {
-
-    public Transform ObjectTransform;
-    NavMeshAgent agent;
     Animator animator;
-
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+    }
+
+    public void openDoor()
+    {
+        animator.SetBool("character_nearby", true);
+    }
+
+    public void closeDoor()
+    {
+        animator.SetBool("character_nearby", false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        agent.destination = ObjectTransform.position;
-        animator.SetFloat("Speed", agent.velocity.magnitude);
+        
     }
 }
