@@ -44,6 +44,8 @@ public class SliceObject : MonoBehaviour
             GameObject lowerHull = hull.CreateLowerHull(target, sectionMateriel);
             SetupSliceComponent(lowerHull);
 
+            FindAnyObjectByType<Audio_Manager>().Play("SwordSlice");
+
             Destroy(target);
         }
     }
