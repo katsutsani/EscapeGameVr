@@ -45,7 +45,15 @@ public class SliceObject : MonoBehaviour
             SetupSliceComponent(lowerHull);
 
             Destroy(target);
+            StartCoroutine(DestroyFruit(upperHull, lowerHull));
         }
+    }
+
+    IEnumerator DestroyFruit(GameObject upper, GameObject lower)
+    {
+        yield return new WaitForSeconds(1f);
+        Destroy(upper);
+        Destroy(lower);
     }
 
     public void SetupSliceComponent(GameObject slicedObject)

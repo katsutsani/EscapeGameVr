@@ -8,8 +8,7 @@ public class FruitLaunch : MonoBehaviour
 {
     [SerializeField]
     private Transform _launchPos;
-    [SerializeField]
-    private Transform _target;
+    private GameObject _target;
     [SerializeField]
     private List<GameObject> _projectile;
     [SerializeField]
@@ -22,6 +21,7 @@ public class FruitLaunch : MonoBehaviour
     {
         _proj = Random.Range(0, _projectile.Count);
         _fruit = Instantiate(_projectile[_proj], _launchPos.position, Quaternion.identity);
+        StartCoroutine(DestroyFullFruit(_fruit));
     }
 
     void Update()
@@ -32,15 +32,22 @@ public class FruitLaunch : MonoBehaviour
             StartCoroutine(FruitNinja());
         }
     }
-
     IEnumerator FruitNinja()
     {
         while(StartGame)
         {
             yield return new WaitForSeconds(1f);
+            _target = GameObject.FindGameObjectWithTag("Player");
+            transform.LookAt(_target.transform.position + new Vector3(0.0f, 100f, 0f));
             RandomProjecties();
         }
         yield return null;
+    }
+
+    IEnumerator DestroyFullFruit(GameObject fruit)
+    {
+        yield return new WaitForSeconds(5f);
+        Destroy(fruit);
     }
 
 }

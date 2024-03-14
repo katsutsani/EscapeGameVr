@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class VelovityFruit : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject Target;
     private Vector3 dir;
+    public string PlayersTag = "Player";
 
     private void Start()
     {
-        dir = Target.transform.position - transform.position;
-        GetComponent<Rigidbody>().velocity = dir.normalized;
+        GameObject players = GameObject.FindGameObjectWithTag(PlayersTag);
+        dir = (players.transform.position + Vector3.up) - transform.position;
+        GetComponent<Rigidbody>().velocity = dir.normalized* 5f;
     }
 }
