@@ -7,6 +7,8 @@ TagManager:
   - Portal
   - Platformer
   - IAPlatformer
+  - Anchor
+  - Button
   layers:
   - Default
   - TransparentFX

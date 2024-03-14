@@ -17,6 +17,7 @@ public class PortalableObject : MonoBehaviour
     protected new Collider collider;
 
     public float Cooldown = 5;
+    public float ActualCooldown;
     private bool InCooldown = false;
 
     private static readonly Quaternion halfTurn = Quaternion.Euler(0f, 180.0f, 0f);
@@ -105,7 +106,7 @@ public class PortalableObject : MonoBehaviour
 
             transform.rotation = new Quaternion(0.0f, transform.rotation.y, 0.0f, 0.0f);
 
-            Cooldown = 5;
+            ActualCooldown = Cooldown;
             InCooldown = true;
         }
     }
@@ -118,7 +119,7 @@ public class PortalableObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Cooldown < 4)
+        if (ActualCooldown < 4)
         {
             if (inPortal != null && outPortal != null)
             {
@@ -126,9 +127,9 @@ public class PortalableObject : MonoBehaviour
                 outPortal.GetComponent<BoxCollider>().isTrigger = false;
             }
         }
-        if (Cooldown > 0)
+        if (ActualCooldown > 0)
         {
-            Cooldown -= Time.deltaTime;
+            ActualCooldown -= Time.deltaTime;
         }
         else
         {
