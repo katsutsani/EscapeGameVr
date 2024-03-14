@@ -3,24 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class NewBehaviourScript : MonoBehaviour
+public class AI_Follow : MonoBehaviour
 {
 
-    public Transform ObjectTransform;
     NavMeshAgent agent;
+    Rigidbody rb;
     Animator animator;
+    public float m_Speed = 10;
 
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        agent.destination = ObjectTransform.position;
-        animator.SetFloat("Speed", agent.velocity.magnitude);
+        transform.position += (transform.forward * m_Speed) * Time.deltaTime;
+        //rb.velocity = transform.forward * m_Speed;
+        //animator.SetFloat("Speed", rb.velocity.magnitude);
     }
+
 }
